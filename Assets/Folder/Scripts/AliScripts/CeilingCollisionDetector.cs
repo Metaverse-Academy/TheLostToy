@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CeilingCollisionDetector : MonoBehaviour
@@ -12,6 +13,8 @@ public class CeilingCollisionDetector : MonoBehaviour
             {
                 Debug.Log("Player Hit by Ceiling!");
                 playerHealth.TakeDamage(101);
+                // Destroy the ceiling object on collision
+                // Destroy(collision.gameObject);
             }
         }
     }
