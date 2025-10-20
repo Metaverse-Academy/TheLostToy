@@ -4196,7 +4196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   cameraRoot: {fileID: 4324999665189045379}
-  lookSensitivity: 15
+  lookSensitivity: 30
   maxLookAngle: 80
 --- !u!54 &8623100568906020509
 Rigidbody:
