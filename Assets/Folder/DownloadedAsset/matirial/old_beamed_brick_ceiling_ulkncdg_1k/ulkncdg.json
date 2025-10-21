@@ -1,0 +1,598 @@
+{
+  "assetCategories": {
+    "surface": {
+      "brick": {
+        "mortar": {}
+      }
+    }
+  },
+  "averageColor": "#000000",
+  "categories": [
+    "surface",
+    "brick",
+    "mortar"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "displacementBias": 0.571654,
+  "displacementCalibrationAccuracy": 0.982717,
+  "displacementScale": 2.303405,
+  "environment": {
+    "biome": "undefined",
+    "region": "Asia"
+  },
+  "highest_available_res": 8192,
+  "id": "ulkncdg",
+  "json": {
+    "contentLength": 12560,
+    "uri": "ulkncdg.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#DFDFDF",
+      "bitDepth": 32,
+      "colorSpace": "sRGB",
+      "contentLength": 179583669,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 124,
+      "name": "AO",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "ao",
+      "uri": "ulkncdg_8K_AO.exr"
+    },
+    {
+      "averageColor": "#DFDFDF",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 38241083,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 124,
+      "name": "AO",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "ao",
+      "uri": "ulkncdg_8K_AO.jpg"
+    },
+    {
+      "averageColor": "#9E836D",
+      "bitDepth": 16,
+      "colorSpace": "sRGB",
+      "contentLength": 230178955,
+      "maxIntensity": 184,
+      "mimeType": "image/x-exr",
+      "minIntensity": 55,
+      "name": "Basecolor",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "basecolor",
+      "uri": "ulkncdg_8K_Basecolor.exr"
+    },
+    {
+      "averageColor": "#9E836D",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 43130104,
+      "maxIntensity": 184,
+      "mimeType": "image/jpeg",
+      "minIntensity": 55,
+      "name": "Basecolor",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "basecolor",
+      "uri": "ulkncdg_8K_Basecolor.jpg"
+    },
+    {
+      "averageColor": "#808080",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 200911613,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Bump",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "bump",
+      "uri": "ulkncdg_8K_Bump.exr"
+    },
+    {
+      "averageColor": "#808080",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 18099641,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Bump",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "bump",
+      "uri": "ulkncdg_8K_Bump.jpg"
+    },
+    {
+      "averageColor": "#FFFFFF",
+      "bitDepth": 32,
+      "colorSpace": "sRGB",
+      "contentLength": 208486188,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 255,
+      "name": "Cavity",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "cavity",
+      "uri": "ulkncdg_8K_Cavity.exr"
+    },
+    {
+      "averageColor": "#FFFFFF",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 44354857,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 255,
+      "name": "Cavity",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "cavity",
+      "uri": "ulkncdg_8K_Cavity.jpg"
+    },
+    {
+      "averageColor": "#818181",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 264919496,
+      "maxIntensity": 161,
+      "mimeType": "image/x-exr",
+      "minIntensity": 110,
+      "name": "Displacement",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "displacement",
+      "uri": "ulkncdg_8K_Displacement.exr"
+    },
+    {
+      "averageColor": "#818181",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 4861664,
+      "maxIntensity": 161,
+      "mimeType": "image/jpeg",
+      "minIntensity": 110,
+      "name": "Displacement",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "displacement",
+      "uri": "ulkncdg_8K_Displacement.jpg"
+    },
+    {
+      "averageColor": "#222222",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 98702206,
+      "maxIntensity": 49,
+      "mimeType": "image/x-exr",
+      "minIntensity": 9,
+      "name": "Gloss",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "ulkncdg_8K_Gloss.exr"
+    },
+    {
+      "averageColor": "#222222",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 28718713,
+      "maxIntensity": 49,
+      "mimeType": "image/jpeg",
+      "minIntensity": 9,
+      "name": "Gloss",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "ulkncdg_8K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#8281FB",
+      "bitDepth": 16,
+      "colorSpace": "Linear",
+      "contentLength": 198223657,
+      "maxIntensity": 172,
+      "mimeType": "image/x-exr",
+      "minIntensity": 112,
+      "name": "Normal",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "normal",
+      "uri": "ulkncdg_8K_Normal.exr"
+    },
+    {
+      "averageColor": "#8281FB",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 70673705,
+      "maxIntensity": 172,
+      "mimeType": "image/jpeg",
+      "minIntensity": 112,
+      "name": "Normal",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "normal",
+      "uri": "ulkncdg_8K_Normal.jpg"
+    },
+    {
+      "averageColor": "#DDDDDD",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 98500573,
+      "maxIntensity": 246,
+      "mimeType": "image/x-exr",
+      "minIntensity": 206,
+      "name": "Roughness",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "ulkncdg_8K_Roughness.exr"
+    },
+    {
+      "averageColor": "#DDDDDD",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 26704011,
+      "maxIntensity": 246,
+      "mimeType": "image/jpeg",
+      "minIntensity": 206,
+      "name": "Roughness",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "ulkncdg_8K_Roughness.jpg"
+    },
+    {
+      "averageColor": "#383838",
+      "bitDepth": 16,
+      "colorSpace": "sRGB",
+      "contentLength": 231515366,
+      "maxIntensity": 56,
+      "mimeType": "image/x-exr",
+      "minIntensity": 56,
+      "name": "Specular",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "specular",
+      "uri": "ulkncdg_8K_Specular.exr"
+    },
+    {
+      "averageColor": "#383838",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 26718678,
+      "maxIntensity": 56,
+      "mimeType": "image/jpeg",
+      "minIntensity": 56,
+      "name": "Specular",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "specular",
+      "uri": "ulkncdg_8K_Specular.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "2x2 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "0.04 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "tiling_directions",
+      "name": "Tiling Directions",
+      "value": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "4096 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Old Beamed Brick Ceiling",
+  "pack": null,
+  "physicalSize": null,
+  "points": 2,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 286778,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "ulkncdg_Grid_360.png"
+      },
+      {
+        "contentLength": 388395,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "ulkncdg_Grid_420.png"
+      },
+      {
+        "contentLength": 1137347,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "ulkncdg_Grid_720.png"
+      },
+      {
+        "contentLength": 1547343,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "ulkncdg_Grid_840.png"
+      },
+      {
+        "contentLength": 2710219,
+        "resolution": "1440x768",
+        "tags": [
+          "preview",
+          "clay"
+        ],
+        "uri": "ulkncdg_PopupClay_1440.png"
+      },
+      {
+        "contentLength": 5115599,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview",
+          "clay"
+        ],
+        "uri": "ulkncdg_PopupClay_1920.png"
+      },
+      {
+        "contentLength": 11051734,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "clay",
+          "retina"
+        ],
+        "uri": "ulkncdg_PopupClay_2880.png"
+      },
+      {
+        "contentLength": 21303801,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "clay",
+          "retina"
+        ],
+        "uri": "ulkncdg_PopupClay_3840.png"
+      },
+      {
+        "contentLength": 3387178,
+        "resolution": "1440x768",
+        "tags": [
+          "preview",
+          "tiled"
+        ],
+        "uri": "ulkncdg_PopupTiled_1440.png"
+      },
+      {
+        "contentLength": 6350414,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview",
+          "tiled"
+        ],
+        "uri": "ulkncdg_PopupTiled_1920.png"
+      },
+      {
+        "contentLength": 13564488,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "tiled",
+          "retina"
+        ],
+        "uri": "ulkncdg_PopupTiled_2880.png"
+      },
+      {
+        "contentLength": 25601373,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "tiled",
+          "retina"
+        ],
+        "uri": "ulkncdg_PopupTiled_3840.png"
+      },
+      {
+        "contentLength": 3402128,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "ulkncdg_Popup_1440.png"
+      },
+      {
+        "contentLength": 6388549,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "ulkncdg_Popup_1920.png"
+      },
+      {
+        "contentLength": 13682431,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "ulkncdg_Popup_2880.png"
+      },
+      {
+        "contentLength": 25912752,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "ulkncdg_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-17 01:16:12",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "revision": 0,
+  "semanticTags": {
+    "asset_type": "surface",
+    "color": [
+      "Brown"
+    ],
+    "contains": [
+      "beams",
+      "stone",
+      "grout",
+      "girder",
+      "flat bricks",
+      "paint",
+      "girder ceilings",
+      "iron",
+      "rust"
+    ],
+    "country": "Pakistan",
+    "descriptive": [
+      "worn",
+      "old",
+      "damaged",
+      "beamed",
+      "rough",
+      "rusty"
+    ],
+    "environment": [
+      "rural"
+    ],
+    "industry": [
+      "archviz",
+      "games",
+      "VFX"
+    ],
+    "interior_exterior": [
+      "interior"
+    ],
+    "locations": {
+      "Asia": {
+        "Pakistan": {}
+      }
+    },
+    "maxSize": 2,
+    "minSize": 2,
+    "name": "Old Beamed Brick Ceiling",
+    "orientation": [
+      "ceiling"
+    ],
+    "region": "Asia",
+    "state": [
+      "old",
+      "damaged"
+    ],
+    "subject_matter": "manmade",
+    "theme": [
+      "ceilings",
+      "houses",
+      "buildings",
+      "rural",
+      "villages",
+      "verandas",
+      "homes",
+      "countryside"
+    ]
+  },
+  "tags": [
+    "ceiling",
+    "building",
+    "urban",
+    "bricks",
+    "beams",
+    "worn",
+    "old"
+  ],
+  "texelDensity": 4096,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 288727325,
+      "gltfVersion": "2.0",
+      "tier": 0,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_0/ulkncdg_tier_0.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 92541766,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/ulkncdg_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 23500030,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/ulkncdg_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 1831206,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/ulkncdg_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}
