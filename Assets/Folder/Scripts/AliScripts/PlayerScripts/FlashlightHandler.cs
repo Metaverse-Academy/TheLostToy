@@ -8,6 +8,11 @@ public class FlashlightHandler : MonoBehaviour
     public Rigidbody flashlightRb;
     public Transform holdPoint;
     public Transform cameraTransform;
+    private Collider flashlightCollider;
+
+    [Header("Camera")]
+    [SerializeField] private float interactDistance = 3f;
+    [SerializeField] private GameObject interactUI;
 
     [Header("Settings")]
     public float pickUpDistance = 3f;
@@ -17,6 +22,7 @@ public class FlashlightHandler : MonoBehaviour
     void Start()
     {
         isHolding = flashlight.parent == holdPoint;
+        flashlightCollider = flashlight.GetComponent<Collider>();
     }
     public void OnFLToggle(InputValue value)
     {
@@ -33,19 +39,32 @@ public class FlashlightHandler : MonoBehaviour
         {
             if (hit.collider.transform == flashlight)
             {
+                interactUI.gameObject.SetActive(true);
                 PickUpFlashlight();
             }
+            else
+            {
+                interactUI.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            interactUI.gameObject.SetActive(false);
         }
     }
-
     private void PickUpFlashlight()
     {
         flashlight.SetParent(holdPoint);
         flashlight.localPosition = Vector3.zero;
         flashlight.localRotation = Quaternion.identity;
         flashlightRb.isKinematic = true;
+        if (flashlightCollider != null)
+        {
+            flashlightCollider.isTrigger = true;
+        }
 
         isHolding = true;
+        Debug.Log($"Flashlight Picked Up and is holding: {isHolding}");
     }
 
     private void DropFlashlight()
@@ -55,7 +74,12 @@ public class FlashlightHandler : MonoBehaviour
 
         flashlightRb.linearVelocity = Vector3.zero;
         flashlightRb.angularVelocity = Vector3.zero;
+        if (flashlightCollider != null)
+        {
+            flashlightCollider.isTrigger = false;
+        }
 
         isHolding = false;
+        Debug.Log($"Flashlight Dropped and is holding: {isHolding}");
     }
 }
