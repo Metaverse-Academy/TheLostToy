@@ -19,6 +19,7 @@ public class PlayerDeath : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(deathSound);
 
+
         // تعطيل الحركة والتحكم
         var cc = GetComponent<CharacterController>();
         if (cc) cc.enabled = false;

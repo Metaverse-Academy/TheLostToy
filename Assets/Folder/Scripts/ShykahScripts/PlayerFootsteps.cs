@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerFootsteps : MonoBehaviour
 {
     public CharacterController controller; 
-        public AudioClip footstepSound;
+    public AudioClip footstepSound;
     public float stepDelay = 0.5f; // الفترة بين كل خطوة
 
     private AudioSource audioSource;
