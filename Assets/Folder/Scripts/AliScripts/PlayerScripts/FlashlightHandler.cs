@@ -22,7 +22,12 @@ public class FlashlightHandler : MonoBehaviour
     void Start()
     {
         isHolding = flashlight.parent == holdPoint;
+
         flashlightCollider = flashlight.GetComponent<Collider>();
+        if (flashlightCollider != null)
+        {
+            flashlightCollider.isTrigger = true;
+        }
     }
     public void OnFLToggle(InputValue value)
     {
