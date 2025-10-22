@@ -42,15 +42,17 @@ public class FlashlightHandler : MonoBehaviour
 
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit, pickUpDistance))
         {
+            // if (interactUI = null) return;
+
             if (hit.collider.transform == flashlight)
             {
-                interactUI.gameObject.SetActive(true);
+                // interactUI.gameObject.SetActive(true);
                 PickUpFlashlight();
             }
-            else
-            {
-                interactUI.gameObject.SetActive(false);
-            }
+            // else
+            // {
+            //     interactUI.gameObject.SetActive(false);
+            // }
         }
         else
         {
