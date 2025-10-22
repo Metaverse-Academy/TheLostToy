@@ -1784,7 +1784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8028ccd8d9a5f4448826baab5e9b852d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CeilingTimer
-  totalTime: 2
+  totalTime: 180
   volumeShake: {fileID: 414951340}
   effectDuration: 5
   ceiling: {fileID: 8244987500214046773}
