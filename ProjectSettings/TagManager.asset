@@ -10,12 +10,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ceiling
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Wall
+  - Ground
+  - Player
   - 
   - 
   - 

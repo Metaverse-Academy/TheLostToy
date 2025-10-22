@@ -57,7 +57,7 @@ public class FlashlightHandler : MonoBehaviour
             interactUI.gameObject.SetActive(false);
         }
     }
-    private void PickUpFlashlight()
+    public void PickUpFlashlight()
     {
         flashlight.SetParent(holdPoint);
         flashlight.localPosition = Vector3.zero;
@@ -72,7 +72,7 @@ public class FlashlightHandler : MonoBehaviour
         Debug.Log($"Flashlight Picked Up and is holding: {isHolding}");
     }
 
-    private void DropFlashlight()
+    public void DropFlashlight()
     {
         flashlight.SetParent(null);
         flashlightRb.isKinematic = false;

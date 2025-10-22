@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+    public FlashlightHandler flashlightHandler;
+    void Start()
+    {
+        flashlightHandler = FindObjectOfType<FlashlightHandler>();
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -10,7 +15,8 @@ public class Ghost : MonoBehaviour
             if (playerHealth != null)
             {
                 Debug.Log("Player Hit by Ghost!");
-                playerHealth.TakeDamage(50);
+                playerHealth.TakeDamage(20);
+                flashlightHandler.DropFlashlight();
             }
         }
     }
