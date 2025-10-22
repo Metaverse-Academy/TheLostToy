@@ -3,10 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class WinToy : MonoBehaviour
 {
-
     [Header("UI Elements")]
     [SerializeField] private GameObject WinScreen;
-    public string mainMenuScene = "MainMenu";
+    private string mainMenuScene = "MainMenu";
     [Header("Settings")]
     private bool hasWon = false;
 
@@ -16,7 +15,7 @@ public class WinToy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player Reached the Toy! You Win!");
-            WinScreen.SetActive(true);
+            GameManager.Instance.OnGameWin();
             Time.timeScale = 0f;
             hasWon = true;
         }

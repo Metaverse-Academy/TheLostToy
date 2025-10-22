@@ -1192,13 +1192,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668603371}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.81175, y: -0.144, z: 16.863483}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -0.80748934, y: 0.267, z: 16.864708}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 766922674}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!1 &697571163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766922674}
+  - component: {fileID: 766922675}
   m_Layer: 0
   m_Name: ToySpawnPoints
   m_TagString: Untagged
@@ -1371,6 +1372,25 @@ Transform:
   - {fileID: 890375222}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766922675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766922673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4955642e0c1c44aa8cb3c17eb72825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToySpawner
+  dollPrefab: {fileID: 7774562190339072257, guid: bd8beaef26ebeec449c7676fd473a21c, type: 3}
+  spawnPoints:
+  - {fileID: 206468976}
+  - {fileID: 668603372}
+  - {fileID: 1992579737}
+  - {fileID: 890375222}
+  spawnDelay: 3
 --- !u!43 &825759028
 Mesh:
   m_ObjectHideFlags: 0
@@ -1687,6 +1707,52 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1007483420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007483422}
+  - component: {fileID: 1007483421}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1007483421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007483420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a925ea92b31ac409a1b1372e68a3f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameOverUI: {fileID: 6968131537732061367}
+  gameWinUI: {fileID: 3727080489176666854}
+--- !u!4 &1007483422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007483420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.58622, y: 0.19131, z: -15.78861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4518,7 +4584,7 @@ Transform:
   m_GameObject: {fileID: 1992579736}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 19.708, y: -0.020269334, z: -16.39}
+  m_LocalPosition: {x: 20.295, y: 0.228, z: -16.39}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7589,7 +7655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4250155657772704740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &2478419657305300241
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18512,13 +18590,14 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 1007746866}
   - {fileID: 2142063751}
+  - {fileID: 8771892388911411947}
+  - {fileID: 766922674}
   - {fileID: 959043823}
   - {fileID: 1974110839}
   - {fileID: 697571165}
   - {fileID: 1348674527}
   - {fileID: 602837815}
   - {fileID: 1278014759}
+  - {fileID: 1007483422}
   - {fileID: 8893222504738360819}
   - {fileID: 1321336356}
-  - {fileID: 8771892388911411947}
-  - {fileID: 766922674}
