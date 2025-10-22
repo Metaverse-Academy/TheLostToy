@@ -4,10 +4,9 @@ using UnityEngine.SceneManagement;
 public class WinToy : MonoBehaviour
 {
 
-    // [Header("UI Elements")]
-    // [SerializeField] private GameObject WinScreen;
-    // public string nextLevel;
-    // public string mainMenuScene = "MainMenu";
+    [Header("UI Elements")]
+    [SerializeField] private GameObject WinScreen;
+    public string mainMenuScene = "MainMenu";
     [Header("Settings")]
     private bool hasWon = false;
 
@@ -17,24 +16,15 @@ public class WinToy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player Reached the Toy! You Win!");
+            WinScreen.SetActive(true);
             Time.timeScale = 0f;
             hasWon = true;
         }
     }
-    public void OnNextButton()
-    {
-        Time.timeScale = 1f;
-    }
-
-    public void OnRetryButton()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void OnMainMenuButton()
     {
         Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void OnQuitButton()
