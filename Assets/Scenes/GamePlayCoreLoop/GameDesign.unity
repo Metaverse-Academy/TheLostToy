@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3:00
+  m_text: 60
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1545,7 +1545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &235168327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10105,7 +10105,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0
+  weight: 0.4
   sharedProfile: {fileID: 11400000, guid: e19d101a2d759b747b46c855d7a3d586, type: 2}
 --- !u!4 &1746731137
 Transform:
@@ -11063,11 +11063,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5804759cf9257074b86da02296f1b441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timeDuration: 180
+  timeDuration: 60
   timerText: {fileID: 211515540}
-  thirdMinuteColor: {r: 1, g: 1, b: 1, a: 1}
-  secondMinuteColor: {r: 1, g: 0, b: 0, a: 0.5}
-  lastMinuteColor: {r: 1, g: 0, b: 0, a: 1}
+  firstPeriodColor: {r: 1, g: 1, b: 1, a: 1}
+  secondPeriodColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  lastPeriodColor: {r: 1, g: 0, b: 0, a: 1}
   impulseSource: {fileID: 1621439332}
 --- !u!1 &1918508877
 GameObject:
@@ -19654,7 +19654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &5894178529176049560
 MeshRenderer:
   m_ObjectHideFlags: 0
