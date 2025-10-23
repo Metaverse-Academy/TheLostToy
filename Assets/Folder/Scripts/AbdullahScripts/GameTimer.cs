@@ -1,30 +1,33 @@
 using UnityEngine;
 using TMPro;
-using Unity.Cinemachine; // لا تنس إضافة هذا السطر للوصول إلى Cinemachine
+using Unity.Cinemachine; 
 
 public class GameTimer : MonoBehaviour
 {
     [Header("Timer Settings")]
-    public float timeDuration = 180f;
+    [Tooltip("مدة المؤقت بالثواني (الافتراضي 60 ثانية)")]
+    public float timeDuration = 60f;
 
     [Header("UI Elements")]
     public TextMeshProUGUI timerText;
+    public GameManager gameManager;
+
 
     [Header("Color Settings")]
-    public Color thirdMinuteColor = Color.white;
-    public Color secondMinuteColor = new Color(1f, 0f, 0f, 0.5f);
-    public Color lastMinuteColor = Color.red;
+    public Color firstPeriodColor = Color.white;
+    public Color secondPeriodColor = Color.yellow;
+    public Color lastPeriodColor = Color.red;
 
     [Header("Screen Shake")]
     [Tooltip("اسحب هنا الكائن الذي يحتوي على Cinemachine Impulse Source")]
-    public CinemachineImpulseSource impulseSource; // المرجع لمصدر الاهتزاز
+    public CinemachineImpulseSource impulseSource; 
 
-    private float remainingTime;
+    public float remainingTime;
     private bool isTimerRunning = false;
 
-    // متغيرات لتتبع ما إذا كان الاهتزاز قد حدث بالفعل لكل دقيقة
-    private bool shakeAtTwoMinutesDone = false;
-    private bool shakeAtOneMinuteDone = false;
+    // --- متغيرات جديدة لتتبع الاهتزاز كل 20 ثانية ---
+    private bool shakeAt40SecondsDone = false;
+    private bool shakeAt20SecondsDone = false;
 
     void Start()
     {
@@ -35,12 +38,14 @@ public class GameTimer : MonoBehaviour
 
     void Update()
     {
+        GameEnd();
+
         if (isTimerRunning && remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
             
-            // استدعاء دالة التحقق من الاهتزاز
-            CheckForScreenShake();
+            // استدعاء دالة التحقق من الاهتزاز (الآن تعمل كل 20 ثانية)
+            CheckForScreenShake(); 
 
             UpdateTimerDisplay(remainingTime);
             UpdateTimerColor();
@@ -50,29 +55,30 @@ public class GameTimer : MonoBehaviour
             remainingTime = 0;
             isTimerRunning = false;
             UpdateTimerDisplay(remainingTime);
-            timerText.color = lastMinuteColor;
+            timerText.color = lastPeriodColor;
         }
     }
 
+    // --- تم تعديل هذه الدالة بالكامل ---
     private void CheckForScreenShake()
     {
         // التأكد من وجود مرجع لمصدر الاهتزاز لتجنب الأخطاء
         if (impulseSource == null) return;
 
-        // عند الوصول إلى الدقيقة الثانية (أقل من أو يساوي 120 ثانية)
-        if (remainingTime <= 120f && !shakeAtTwoMinutesDone)
+        // عند الوصول إلى 40 ثانية (أول 20 ثانية مرت)
+        if (remainingTime <= 40f && !shakeAt40SecondsDone)
         {
             impulseSource.GenerateImpulse();
-            shakeAtTwoMinutesDone = true; // تم تنفيذ الاهتزاز، لا تكرره
-            Debug.Log("Screen Shake at 2:00");
+            shakeAt40SecondsDone = true; // تم تنفيذ الاهتزاز، لا تكرره
+            Debug.Log("Screen Shake at 0:40");
         }
 
-        // عند الوصول إلى الدقيقة الأخيرة (أقل من أو يساوي 60 ثانية)
-        if (remainingTime <= 60f && !shakeAtOneMinuteDone)
+        // عند الوصول إلى 20 ثانية (ثاني 20 ثانية مرت)
+        if (remainingTime <= 20f && !shakeAt20SecondsDone)
         {
             impulseSource.GenerateImpulse();
-            shakeAtOneMinuteDone = true; // تم تنفيذ الاهتزاز، لا تكرره
-            Debug.Log("Screen Shake at 1:00");
+            shakeAt20SecondsDone = true; // تم تنفيذ الاهتزاز، لا تكرره
+            Debug.Log("Screen Shake at 0:20");
         }
     }
 
@@ -86,8 +92,24 @@ public class GameTimer : MonoBehaviour
 
     private void UpdateTimerColor()
     {
-        if (remainingTime > 120) timerText.color = thirdMinuteColor;
-        else if (remainingTime > 60) timerText.color = secondMinuteColor;
-        else timerText.color = lastMinuteColor;
+        if (remainingTime > 40)
+        {
+            timerText.color = firstPeriodColor;
+        }
+        else if (remainingTime > 20)
+        {
+            timerText.color = secondPeriodColor;
+        }
+        else
+        {
+            timerText.color = lastPeriodColor;
+        }
+    }
+    void GameEnd()
+    {
+        if (remainingTime <= 0)
+        {
+            gameManager.GameOver();
+        }
     }
 }
