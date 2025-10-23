@@ -10,6 +10,8 @@ public class GameTimer : MonoBehaviour
 
     [Header("UI Elements")]
     public TextMeshProUGUI timerText;
+    public GameManager gameManager;
+
 
     [Header("Color Settings")]
     public Color firstPeriodColor = Color.white;
@@ -20,7 +22,7 @@ public class GameTimer : MonoBehaviour
     [Tooltip("اسحب هنا الكائن الذي يحتوي على Cinemachine Impulse Source")]
     public CinemachineImpulseSource impulseSource; 
 
-    private float remainingTime;
+    public float remainingTime;
     private bool isTimerRunning = false;
 
     // --- متغيرات جديدة لتتبع الاهتزاز كل 20 ثانية ---
@@ -36,6 +38,8 @@ public class GameTimer : MonoBehaviour
 
     void Update()
     {
+        GameEnd();
+
         if (isTimerRunning && remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
@@ -99,6 +103,13 @@ public class GameTimer : MonoBehaviour
         else
         {
             timerText.color = lastPeriodColor;
+        }
+    }
+    void GameEnd()
+    {
+        if (remainingTime <= 0)
+        {
+            gameManager.GameOver();
         }
     }
 }

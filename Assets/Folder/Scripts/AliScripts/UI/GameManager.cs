@@ -5,13 +5,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject gameWinUI;
+    [SerializeField] private GameTimer gameTimer;
     public static GameManager Instance;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            
         }
         else
         {
@@ -31,5 +32,12 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameTimer.remainingTime = gameTimer.timeDuration;
     }
 }
