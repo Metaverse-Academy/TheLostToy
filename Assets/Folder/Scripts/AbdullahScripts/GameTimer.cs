@@ -22,7 +22,7 @@ public class GameTimer : MonoBehaviour
     [Tooltip("اسحب هنا الكائن الذي يحتوي على Cinemachine Impulse Source")]
     public CinemachineImpulseSource impulseSource; 
 
-    private float remainingTime;
+    public float remainingTime;
     private bool isTimerRunning = false;
 
     // --- متغيرات جديدة لتتبع الاهتزاز كل 20 ثانية ---
