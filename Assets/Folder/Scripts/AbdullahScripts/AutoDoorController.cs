@@ -1,71 +1,97 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AudioSource))] // <-- إضافة جديدة (لضمان وجود مكون الصوت)
+[RequireComponent(typeof(AudioSource))]
 public class AutoDoorController : MonoBehaviour
 {
+    // ... (كل المتغيرات تبقى كما هي)
     [Header("Door Settings")]
-    [Tooltip("زاوية الفتح بالدرجات. 90 درجة تعني فتح كامل للخارج.")]
     [SerializeField] private float openAngle = 90f;
-
-    [Tooltip("سرعة فتح وإغلاق الباب. قيمة أعلى تعني حركة أسرع.")]
     [SerializeField] private float openSpeed = 2.0f;
 
     [Header("Trigger Zone")]
-    [Tooltip("حجم المنطقة التي ستفعل الباب. يمكنك رؤيتها في المشهد كصندوق أخضر.")]
     [SerializeField] private Vector3 triggerSize = new Vector3(3, 2, 3);
 
-    [Header("Sound Settings")] // <-- إضافة جديدة
-    [Tooltip("المقطع الصوتي الذي سيعمل عند فتح الباب.")] // <-- إضافة جديدة
-    public AudioClip openSound; // <-- إضافة جديدة
+    [Header("Sound Settings")]
+    public AudioClip openSound;
 
-    // متغيرات داخلية لتتبع حالة الباب
+    [Header("Jumpscare Event")]
+    public GameObject monsterToActivate;
+    public AudioClip jumpscareSound;
+    public Transform jumpscareSpawnPoint;
+
+    // متغيرات داخلية
     private Quaternion initialRotation;
     private Quaternion openRotation;
     private bool isPlayerNear = false;
     private bool isMoving = false;
-    private AudioSource audioSource; // <-- إضافة جديدة
+    private AudioSource audioSource;
+    private bool jumpscareTriggered = false;
 
     void Awake()
     {
-        // احفظ دوران الباب الأصلي (وهو مغلق)
         initialRotation = transform.rotation;
-        // احسب دوران الباب عندما يكون مفتوحًا
         openRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
 
-        // --- إنشاء منطقة التفعيل (Trigger) تلقائيًا ---
         BoxCollider trigger = gameObject.AddComponent<BoxCollider>();
         trigger.isTrigger = true;
         trigger.size = triggerSize;
 
-        // --- الحصول على مكون الصوت ---
-        audioSource = GetComponent<AudioSource>(); // <-- إضافة جديدة
+        audioSource = GetComponent<AudioSource>();
+
+        // --- تم حذف الكود الذي يخفي الكائن من هنا ---
+        // if (monsterToActivate != null)
+        // {
+        //     monsterToActivate.SetActive(false); 
+        // }
     }
 
-    // هذه الدالة تعمل عندما يدخل كائن ما إلى منطقة التفعيل
     private void OnTriggerEnter(Collider other)
     {
-        // تحقق مما إذا كان الكائن الذي دخل هو اللاعب
         if (other.CompareTag("Player"))
         {
             isPlayerNear = true;
-            // إذا لم يكن الباب يتحرك بالفعل، ابدأ في فتحه
             if (!isMoving)
             {
-                // --- تشغيل الصوت ---
-                if (openSound != null && !audioSource.isPlaying) // <-- إضافة جديدة
+                if (openSound != null && !audioSource.isPlaying)
                 {
-                    audioSource.PlayOneShot(openSound); // <-- إضافة جديدة
+                    audioSource.PlayOneShot(openSound);
                 }
+
+                if (monsterToActivate != null && !jumpscareTriggered && jumpscareSpawnPoint != null)
+                {
+                    TriggerJumpscare();
+                }
+
                 StartCoroutine(RotateDoor(openRotation));
             }
         }
     }
 
-    // هذه الدالة تعمل عندما يخرج كائن ما من منطقة التفعيل
+    private void TriggerJumpscare()
+    {
+        jumpscareTriggered = true;
+
+        // 1. انقل الكائن إلى نقطة الظهور
+        monsterToActivate.transform.position = jumpscareSpawnPoint.position;
+        monsterToActivate.transform.rotation = jumpscareSpawnPoint.rotation;
+
+        // 2. قم بتشغيل صوت الصرخة
+        if (jumpscareSound != null)
+        {
+            audioSource.PlayOneShot(jumpscareSound);
+        }
+
+        // 3. تأكد من أن الكائن نشط (في حال كان معطلاً بالخطأ)
+        if (!monsterToActivate.activeSelf)
+        {
+            monsterToActivate.SetActive(true);
+        }
+    }
+    
+    // ... (باقي الكود يبقى كما هو)
     private void OnTriggerExit(Collider other)
     {
-        // (الكود هنا يبقى كما هو بدون تغيير)
         if (other.CompareTag("Player"))
         {
             isPlayerNear = false;
@@ -76,7 +102,6 @@ public class AutoDoorController : MonoBehaviour
         }
     }
 
-    // (باقي الكود يبقى كما هو بدون تغيير)
     private IEnumerator RotateDoor(Quaternion targetRotation)
     {
         isMoving = true;
