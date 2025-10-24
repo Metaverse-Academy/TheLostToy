@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class WinToy : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private GameObject WinScreen;
+    private GameObject WinScreen;
     private string mainMenuScene = "MainMenu";
     [Header("Settings")]
     private bool hasWon = false;

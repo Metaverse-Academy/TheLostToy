@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public void RestartGame()
+    public void RetryGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(1);
