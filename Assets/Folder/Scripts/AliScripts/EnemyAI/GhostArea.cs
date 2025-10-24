@@ -4,7 +4,7 @@ using UnityEngine;
 public class GhostArea : MonoBehaviour
 {
     [Header("References")]
-    public Transform player;
+    private Transform player;
     private Rigidbody rb;
 
     [Header("Settings")]

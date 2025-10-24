@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public FlashlightHandler flashlightHandler;
+    private FlashlightHandler flashlightHandler;
     void Start()
     {
         flashlightHandler = FindObjectOfType<FlashlightHandler>();
