@@ -1,115 +1,100 @@
 using UnityEngine;
 using TMPro;
-using Unity.Cinemachine; 
+using UnityEngine.UI;
+using Unity.Cinemachine;
 
 public class GameTimer : MonoBehaviour
 {
     [Header("Timer Settings")]
-    [Tooltip("مدة المؤقت بالثواني (الافتراضي 60 ثانية)")]
     public float timeDuration = 60f;
 
     [Header("UI Elements")]
     public TextMeshProUGUI timerText;
-    public GameManager gameManager;
-
+    public Image timerDial; // <-- هذه هي الخانة التي ستظهر
 
     [Header("Color Settings")]
     public Color firstPeriodColor = Color.white;
-    public Color secondPeriodColor = Color.yellow;
+    public Color secondPeriodColor = new Color(1f, 0.5f, 0f, 1f);
     public Color lastPeriodColor = Color.red;
 
     [Header("Screen Shake")]
-    [Tooltip("اسحب هنا الكائن الذي يحتوي على Cinemachine Impulse Source")]
-    public CinemachineImpulseSource impulseSource; 
+    public CinemachineImpulseSource impulseSource;
 
-    public float remainingTime;
+    private float remainingTime;
     private bool isTimerRunning = false;
-
-    // --- متغيرات جديدة لتتبع الاهتزاز كل 20 ثانية ---
-    private bool shakeAt40SecondsDone = false;
-    private bool shakeAt20SecondsDone = false;
+    private bool shakeAt40sDone = false;
+    private bool shakeAt20sDone = false;
 
     void Start()
     {
         remainingTime = timeDuration;
         isTimerRunning = true;
-        UpdateTimerColor();
+        UpdateTimerUI();
     }
 
     void Update()
     {
-        GameEnd();
-
         if (isTimerRunning && remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
-            
-            // استدعاء دالة التحقق من الاهتزاز (الآن تعمل كل 20 ثانية)
-            CheckForScreenShake(); 
-
-            UpdateTimerDisplay(remainingTime);
-            UpdateTimerColor();
+            CheckForScreenShake();
+            UpdateTimerUI();
         }
-        else if (remainingTime <= 0)
+        else if (isTimerRunning && remainingTime <= 0)
         {
             remainingTime = 0;
             isTimerRunning = false;
-            UpdateTimerDisplay(remainingTime);
-            timerText.color = lastPeriodColor;
+            UpdateTimerUI();
+            Debug.Log("Time has run out!");
         }
     }
 
-    // --- تم تعديل هذه الدالة بالكامل ---
-    private void CheckForScreenShake()
+    private void UpdateTimerUI()
     {
-        // التأكد من وجود مرجع لمصدر الاهتزاز لتجنب الأخطاء
-        if (impulseSource == null) return;
-
-        // عند الوصول إلى 40 ثانية (أول 20 ثانية مرت)
-        if (remainingTime <= 40f && !shakeAt40SecondsDone)
+        if (timerText != null)
         {
-            impulseSource.GenerateImpulse();
-            shakeAt40SecondsDone = true; // تم تنفيذ الاهتزاز، لا تكرره
-            Debug.Log("Screen Shake at 0:40");
+            float minutes = Mathf.FloorToInt(remainingTime / 60);
+            float seconds = Mathf.FloorToInt(remainingTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
-        // عند الوصول إلى 20 ثانية (ثاني 20 ثانية مرت)
-        if (remainingTime <= 20f && !shakeAt20SecondsDone)
+        if (timerDial != null)
         {
-            impulseSource.GenerateImpulse();
-            shakeAt20SecondsDone = true; // تم تنفيذ الاهتزاز، لا تكرره
-            Debug.Log("Screen Shake at 0:20");
+            timerDial.fillAmount = remainingTime / timeDuration;
         }
-    }
-
-    private void UpdateTimerDisplay(float timeToDisplay)
-    {
-        if (timeToDisplay < 0) timeToDisplay = 0;
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-
-    private void UpdateTimerColor()
-    {
+        
+        Color currentColor;
         if (remainingTime > 40)
         {
-            timerText.color = firstPeriodColor;
+            currentColor = firstPeriodColor;
         }
         else if (remainingTime > 20)
         {
-            timerText.color = secondPeriodColor;
+            currentColor = secondPeriodColor;
         }
         else
         {
-            timerText.color = lastPeriodColor;
+            currentColor = lastPeriodColor;
         }
+
+        if (timerText != null) timerText.color = currentColor;
+        if (timerDial != null) timerDial.color = currentColor;
     }
-    void GameEnd()
+
+    private void CheckForScreenShake()
     {
-        if (remainingTime <= 0)
+        if (impulseSource == null) return;
+
+        if (remainingTime <= 40f && !shakeAt40sDone)
         {
-            gameManager.GameOver();
+            impulseSource.GenerateImpulse();
+            shakeAt40sDone = true;
+        }
+
+        if (remainingTime <= 20f && !shakeAt20sDone)
+        {
+            impulseSource.GenerateImpulse();
+            shakeAt20sDone = true;
         }
     }
 }

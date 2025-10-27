@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - RandomObject
+  - TeleportPoint
   layers:
   - Default
   - TransparentFX

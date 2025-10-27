@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public float maxHealth = 100f;
     public HeartbeatSound heartbeatSound;
-    private int currentHealth;
+    private float currentHealth;
     private GameManager gameManager;
     void Start()
     {
@@ -12,9 +12,9 @@ public class PlayerHealth : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        currentHealth -= (float)damage;
         if (currentHealth <= 0)
         {
             Die();
