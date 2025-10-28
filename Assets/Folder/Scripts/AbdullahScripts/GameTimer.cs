@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Unity.Cinemachine;
+using UnityEngine.UI; // تأكد من وجود هذا السطر للتحكم بالـ UI
+using Unity.Cinemachine; // تم تغييرها من Unity.Cinemachine لتكون متوافقة مع الإصدارات الأقدم إذا لزم الأمر
 
 public class GameTimer : MonoBehaviour
 {
@@ -10,7 +10,8 @@ public class GameTimer : MonoBehaviour
 
     [Header("UI Elements")]
     public TextMeshProUGUI timerText;
-    public Image timerDial; // <-- هذه هي الخانة التي ستظهر
+    public Image timerDial;
+    public Slider timeSlider; // <-- تمت إضافة هذا السطر. اسحب شريط الوقت إلى هنا
 
     [Header("Color Settings")]
     public Color firstPeriodColor = Color.white;
@@ -20,7 +21,8 @@ public class GameTimer : MonoBehaviour
     [Header("Screen Shake")]
     public CinemachineImpulseSource impulseSource;
 
-    private float remainingTime;
+    public float remainingTime;
+
     private bool isTimerRunning = false;
     private bool shakeAt40sDone = false;
     private bool shakeAt20sDone = false;
@@ -51,6 +53,9 @@ public class GameTimer : MonoBehaviour
 
     private void UpdateTimerUI()
     {
+        // حساب النسبة المئوية مرة واحدة لاستخدامها في كل العناصر
+        float timePercentage = remainingTime / timeDuration;
+
         if (timerText != null)
         {
             float minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -60,8 +65,15 @@ public class GameTimer : MonoBehaviour
 
         if (timerDial != null)
         {
-            timerDial.fillAmount = remainingTime / timeDuration;
+            timerDial.fillAmount = timePercentage;
         }
+
+        // --- السطر الجديد الذي تمت إضافته ---
+        if (timeSlider != null)
+        {
+            timeSlider.value = timePercentage; // تحديث قيمة شريط الوقت
+        }
+        // --- نهاية الإضافة ---
         
         Color currentColor;
         if (remainingTime > 40)
@@ -79,6 +91,9 @@ public class GameTimer : MonoBehaviour
 
         if (timerText != null) timerText.color = currentColor;
         if (timerDial != null) timerDial.color = currentColor;
+        
+        // (اختياري) يمكنك إضافة هذا السطر لتغيير لون شريط الوقت أيضاً
+        // if (timeSlider != null) timeSlider.fillRect.GetComponent<Image>().color = currentColor;
     }
 
     private void CheckForScreenShake()
