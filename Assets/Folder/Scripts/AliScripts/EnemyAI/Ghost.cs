@@ -5,7 +5,7 @@ public class Ghost : MonoBehaviour
     private FlashlightHandler flashlightHandler;
     void Start()
     {
-        flashlightHandler = FindObjectOfType<FlashlightHandler>();
+        flashlightHandler = FindFirstObjectByType<FlashlightHandler>();
     }
     void OnCollisionEnter(Collision collision)
     {
