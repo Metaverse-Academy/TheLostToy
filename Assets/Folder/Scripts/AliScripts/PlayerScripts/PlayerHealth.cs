@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // <-- تمت إضافة هذا السطر للتحكم بالـ Slider
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -7,8 +7,10 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
 
     [Header("UI & Sound")]
-    public Slider healthSlider; // <-- تمت إضافة هذه الخانة. اسحب شريط الصحة إلى هنا
+    public Slider healthSlider;
     public HeartbeatSound heartbeatSound;
+    public AudioClip damageSound;      // <-- إضافة جديدة: خانة لملف صوت الضرر
+    private AudioSource audioSource;   // <-- إضافة جديدة: متغير لتخزين مصدر الصوت
 
     private float currentHealth;
     private GameManager gameManager;
@@ -16,19 +18,32 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        gameManager = FindFirstObjectByType<GameManager>(); // <-- تم التحديث للدالة الجديدة
-        UpdateHealthUI(); // <-- تمت إضافة هذا السطر لتحديث الشريط في البداية
+        gameManager = FindFirstObjectByType<GameManager>();
+        UpdateHealthUI();
+
+        // --- إعداد مصدر الصوت --- // <-- إضافة جديدة
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) { audioSource = gameObject.AddComponent<AudioSource>(); }
+        // -------------------------
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage; // لا حاجة لـ (float) هنا لأن damage من نوع float أصلاً
+        currentHealth -= damage;
+
+        // --- تشغيل صوت الضرر --- // <-- إضافة جديدة
+        if (damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
+        // -------------------------
+
         if (currentHealth < 0)
         {
             currentHealth = 0;
         }
 
-        UpdateHealthUI(); // <-- تمت إضافة هذا السطر لتحديث الشريط بعد تلقي الضرر
+        UpdateHealthUI();
 
         if (currentHealth <= 0)
         {
@@ -44,20 +59,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // --- تمت إضافة هذه الدالة الجديدة ---
     void UpdateHealthUI()
     {
         if (healthSlider != null)
         {
-            // حساب النسبة وتحديث قيمة الـ Slider
             healthSlider.value = currentHealth / maxHealth;
         }
     }
 
     void Die()
     {
-        // يفضل تعطيل الكائن بدلاً من تدميره لتجنب الأخطاء
-        // Destroy(gameObject); 
         gameObject.SetActive(false);
         Debug.Log("Player Died");
 
