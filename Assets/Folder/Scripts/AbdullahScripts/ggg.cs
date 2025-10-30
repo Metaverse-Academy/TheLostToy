@@ -18,6 +18,5 @@ public class ggg : MonoBehaviour
     void nextsvenee()
     {
         SceneManager.LoadScene("GameDesign 1");
-
     }
 }
