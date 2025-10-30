@@ -10659,7 +10659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8028ccd8d9a5f4448826baab5e9b852d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CeilingTimer
-  totalTime: 2
+  totalTime: 180
   volumeShake: {fileID: 414951340}
   effectDuration: 5
   ceiling: {fileID: 8244987500214046773}
@@ -17456,7 +17456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1008898652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26393,7 +26393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1592200057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30183,7 +30183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2142063751}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TheMainFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41161,7 +41161,7 @@ GameObject:
   - component: {fileID: 8155657394544349251}
   - component: {fileID: 8244987500214046775}
   - component: {fileID: 8244987500214046774}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TheCeiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
