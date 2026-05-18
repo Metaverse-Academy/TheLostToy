@@ -51,13 +51,13 @@ public class StatueAI : MonoBehaviour
         if (IsVisibleToPlayer())
         {
             agent.isStopped = true;
-            if (enableDebugLogs) Debug.Log(gameObject.name + ": Player is looking. STOPPING.");
+            // if (enableDebugLogs) Debug.Log(gameObject.name + ": Player is looking. STOPPING.");
         }
         else
         {
             agent.isStopped = false;
             agent.SetDestination(playerTarget.position);
-            if (enableDebugLogs) Debug.Log(gameObject.name + ": Player is NOT looking. MOVING.");
+            // if (enableDebugLogs) Debug.Log(gameObject.name + ": Player is NOT looking. MOVING.");
         }
 
         if (Vector3.Distance(transform.position, playerTarget.position) <= damageDistance)
@@ -71,23 +71,23 @@ public class StatueAI : MonoBehaviour
         Vector3 directionToStatue = (transform.position - playerCamera.transform.position).normalized;
         float dotProduct = Vector3.Dot(playerCamera.transform.forward, directionToStatue);
 
-        if (dotProduct < viewPrecision)
-        {
-            if (enableDebugLogs) Debug.Log("Dot Product: " + dotProduct + " (Outside FoV)");
-            return false;
-        }
+        // if (dotProduct < viewPrecision)
+        // {
+        //     if (enableDebugLogs) Debug.Log("Dot Product: " + dotProduct + " (Outside FoV)");
+        //     return false;
+        // }
 
         RaycastHit hit;
         if (Physics.Raycast(playerCamera.transform.position, directionToStatue, out hit))
         {
             if (hit.transform.IsChildOf(this.transform) || hit.transform == this.transform)
             {
-                if (enableDebugLogs) Debug.Log("Raycast hit the statue. IT IS VISIBLE.");
                 return true;
             }
         }
-        
-        if (enableDebugLogs) Debug.Log("Raycast did not hit the statue (hit " + (hit.transform != null ? hit.transform.name : "nothing") + "). NOT VISIBLE.");
+
+        // if (enableDebugLogs)
+        //     Debug.Log("Raycast did not hit the statue (hit " + (hit.transform != null ? hit.transform.name : "nothing") + "). NOT VISIBLE.");
         return false;
     }
 

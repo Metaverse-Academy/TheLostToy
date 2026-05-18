@@ -33,11 +33,19 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-
+    public void mainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
     public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameTimer.remainingTime = gameTimer.timeDuration;
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

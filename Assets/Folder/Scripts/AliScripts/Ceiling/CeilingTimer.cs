@@ -30,7 +30,7 @@ public class CeilingTimer : MonoBehaviour
         while (timer > 0)
         {
             timer -= 1f;
-            Debug.Log("Time Remaining: " + timer + " seconds");
+            // Debug.Log("Time Remaining: " + timer + " seconds");
             if (Mathf.Approximately(timer % 60f, 0f))
             {
                 StartCoroutine(ShakeEffect());

@@ -74,6 +74,5 @@ public class ToySpawner : MonoBehaviour
 
         // قم بزيادة عداد الانتقالات
         teleportsDone++;
-        Debug.Log($"الدمية انتقلت! (الانتقال رقم {teleportsDone}).");
     }
 }
