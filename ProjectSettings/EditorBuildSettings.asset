@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GamePlayCoreLoop/MainMenu.unity
+    path: Assets/TheScenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/GamePlayCoreLoop/Timeline.unity
+    path: Assets/TheScenes/Timeline.unity
     guid: 40366b7bd3456914db1ef664c8ed6dee
   - enabled: 1
-    path: Assets/Scenes/GamePlayCoreLoop/GameDesign 1.unity
+    path: Assets/TheScenes/GameDesign 1.unity
     guid: 384ce40033926274da0c31b1fcebe7b5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
