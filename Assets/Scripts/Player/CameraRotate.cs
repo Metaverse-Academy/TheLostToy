@@ -22,8 +22,8 @@ public class CameraRotate : MonoBehaviour
 
         cameraTransform.SetParent(null);
 
-        // Cursor.lockState = CursorLockMode.Locked;
-        // Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void FixedUpdate()

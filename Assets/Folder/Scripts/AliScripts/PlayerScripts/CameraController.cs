@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        HandleLook();
+        // HandleLook();
     }
 
     void OnLook(InputValue value)

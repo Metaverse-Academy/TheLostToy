@@ -61,12 +61,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "FLToggle",
+                    "name": "Night",
                     "type": "Button",
-                    "id": "4b293c6e-2778-4449-9a6c-f76981df78e6",
+                    "id": "d367a6ae-65d9-496e-ac8c-c597a3a775e6",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -304,12 +304,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8b27cca3-39c3-42b3-a02e-33abb12a862e",
+                    "id": "26507935-cb12-40b6-a277-cdc23a57138c",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "FLToggle",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Night",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

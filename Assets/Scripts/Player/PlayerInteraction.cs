@@ -19,6 +19,8 @@ public class PlayerInteraction : MonoBehaviour
     private IInteractable currentTarget;
     private bool promptVisible;
 
+    public bool IsHoldingBattery { get; internal set; }
+
     private void Awake()
     {
         if (promptCanvas)
