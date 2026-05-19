@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ggg : MonoBehaviour
+public class NextScene : MonoBehaviour
 {
     void Start()
     {
-        Invoke("nextsvenee", 5f);
+        Invoke("nextScene", 5f);
     }
-    void nextsvenee()
+    void nextScene()
     {
         SceneManager.LoadScene("MainGameScene");
     }
